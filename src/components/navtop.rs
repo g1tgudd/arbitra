@@ -1,33 +1,17 @@
 use yew::prelude::*;
-use yew_router::prelude::*;
-mod pages;
 
-use pages::loginpage::LoginPage;
-use pages::signuppage::SignupPage;
-use pages::homepage::HomePage;
-
-#[derive(Switch, Clone)]
-pub enum AppRoute {
-    #[to="/login"]
-    LoginPage,
-    #[to="/signup"]
-    SignupPage,
-    #[to="/"]
-    HomePage,
-}
-
-enum Msg {
+pub enum Msg {
     AddOne,
 }
 
-struct Model {
+pub struct Navtop {
     // `ComponentLink` is like a reference to a component.
     // It can be used to send messages to the component
     link: ComponentLink<Self>,
     value: i64,
 }
 
-impl Component for Model {
+impl Component for Navtop {
     type Message = Msg;
     type Properties = ();
 
@@ -57,33 +41,10 @@ impl Component for Model {
     }
 
     fn view(&self) -> Html {
-        let render = Router::render(|switch: AppRoute| {
-            match switch {
-                AppRoute::HomePage => {
-                    html! {
-                        <HomePage/>
-                    }
-                }
-                AppRoute::LoginPage => {
-                    html! {
-                        <LoginPage/>
-                    }
-                }
-                AppRoute::SignupPage => {
-                    html! {
-                        <SignupPage/>
-                    }
-                }
-            }
-        });
         html! {
             <div>
-                <Router<AppRoute, ()> render=render/>
+                { "Navtop" }
             </div>
         }
     }
-}
-
-fn main() {
-    yew::start_app::<Model>();
 }
