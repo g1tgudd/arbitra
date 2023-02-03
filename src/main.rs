@@ -5,9 +5,12 @@ mod pages;
 use pages::loginpage::LoginPage;
 use pages::signuppage::SignupPage;
 use pages::homepage::HomePage;
+use pages::dashboardpage::DashboardPage;
 
 #[derive(Switch, Clone)]
 pub enum AppRoute {
+    #[to="/dashboard"]
+    DashboardPage,
     #[to="/login"]
     LoginPage,
     #[to="/signup"]
@@ -72,6 +75,11 @@ impl Component for Model {
                 AppRoute::SignupPage => {
                     html! {
                         <SignupPage/>
+                    }
+                }
+                AppRoute::DashboardPage => {
+                    html! {
+                        <DashboardPage/>
                     }
                 }
             }
