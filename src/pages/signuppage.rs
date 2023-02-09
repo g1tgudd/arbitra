@@ -1,14 +1,10 @@
 use yew::prelude::*;
 
-pub enum Msg {
-    AddOne,
-}
-
+pub enum Msg {}
 pub struct SignupPage {
     // `ComponentLink` is like a reference to a component.
     // It can be used to send messages to the component
     link: ComponentLink<Self>,
-    value: i64,
 }
 
 impl Component for SignupPage {
@@ -18,18 +14,12 @@ impl Component for SignupPage {
     fn create(_props: Self::Properties, link: ComponentLink<Self>) -> Self {
         Self {
             link,
-            value: 0,
         }
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
-            Msg::AddOne => {
-                self.value += 1;
-                // the value has changed so we need to
-                // re-render for it to appear on the page
-                true
-            }
+
         }
     }
 
@@ -57,11 +47,11 @@ impl Component for SignupPage {
                         </div>
                         // ===========================================
                         <div class="row p-3 d-flex justify-content-between flex-row">
-                            <div> 
+                            <div class="p-2"> 
                                 <img src="images/predictive-chart.png" class="card-img-top" style="width: 60px" alt="..."/>
                             </div>
                             
-                            <div> 
+                            <div  class="p-2"> 
                                 <h4>{ "Manage your data." }</h4>
                                 <p class="card-text" style="text-align: justify"> { "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
@@ -70,11 +60,11 @@ impl Component for SignupPage {
                         </div>
                         // ===========================================
                         <div class="row p-3 d-flex justify-content-between flex-row">
-                            <div>
+                            <div  class="p-2">
                                 <img src="images/database.png" class="card-img-top" style="width: 60px" alt="..."/>
                             </div>
 
-                            <div> 
+                            <div  class="p-2"> 
                                 <h4>{ "Analytics & Services" }</h4>
                                 <p class="card-text" style="text-align: justify"> { "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                                 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
@@ -88,14 +78,18 @@ impl Component for SignupPage {
                     </div>
                     <div class="col-md-9 d-flex justify-content-center align-items-center">
                         <div class="card d-flex justify-content-center p-5 mx-4" style="width: 40vw"> 
-                            <div class="d-flex justify-content-between align-items-stretch"> 
+                            <div class="d-flex justify-content-between align-items-center"> 
                                 <h1 style="padding-bottom: 5%; font-family: 'Alexandria', sans-serif;">{ "Sign Up" }</h1>
-                                <p>{ "Already have an account? " } <a href="/login" class="link-primary" style="color:#A73034">{ "Log in" }</a></p>
+                                <div>
+                                    <p style="height: 5rem">{ "Already have an account? " } 
+                                    <a href="/login" class="link-primary" style="color:#A73034">{ "Log in" }</a></p>
+                                </div>
+                                
                             </div>
                                 // ===========================================
                             <div> 
-                                <input type="text" id="emailInput" class="form-control p-3 my-2 " placeholder="Email"/>
-                                <input type="password" id="passwordInput" class="form-control p-3 my-2 " placeholder="Password"/>
+                                <input type="text" id="emailInput" class="form-control p-3 my-2 " placeholder="Email" style="height: 3rem"/>
+                                <input type="password" id="passwordInput" class="form-control p-3 my-2 " placeholder="Password" style="height: 3rem"/>
                             </div>
                                // ===========================================
                             <div class="py-3"> 
@@ -109,14 +103,14 @@ impl Component for SignupPage {
                             
                             
                             <div class="mt-3 mb-1"> 
-                                <p>{ "or sign up with:" }</p>
+                                <p class="text-center">{ "or sign up with:" }</p>
                             </div>
-                            <div> 
-                                <button type="button" class="btn btn-link btn-floating me-1">
+                            <div style="height:40px;" class="mx-auto"> 
+                                <button type="button" class="btn btn-link btn-floating">
                                     <img src="images/Github.png" alt="github image" style="width: 30px"/> 
                                 </button>
 
-                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                <button type="button" class="btn btn-link btn-floating">
                                     <img src="images/Google.png" alt="google image" style="width: 30px"/> 
                                 </button>
                             </div>

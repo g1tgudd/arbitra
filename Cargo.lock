@@ -19,8 +19,10 @@ name = "arbitra"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "serde",
  "yew",
  "yew-router",
+ "yewdux",
 ]
 
 [[package]]
@@ -512,4 +514,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "de4a67208fb46b900af18a7397938b01f379dfc18da34799cfa8347eec715697"
 dependencies = [
  "nom",
+]
+
+[[package]]
+name = "yewdux"
+version = "0.6.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5015d52c6ceef13ff148af73b6258d5d8df401b1f9b039ec9fdc622d04166be1"
+dependencies = [
+ "serde",
+ "yew",
 ]

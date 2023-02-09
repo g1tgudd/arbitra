@@ -10,8 +10,8 @@
 .loginBox{
     background-color: white;
     margin: 2%;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: auto;
+    margin-right: auto;
     border: solid;
     border-width: 1px;
     border-color: lightgray;
@@ -19,6 +19,7 @@
     padding-right: 2.5%;
     padding-top: 2.5%;
     padding-bottom: 1%;
+    width: 40vw;
 }
 
 /* Styling for Submit Button */
@@ -161,6 +162,117 @@ input[type=password]:focus {
 /* End of Arbitra Homepage */
 
 /* Arbitra Dashboard */
+/* HEADER */ 
+.header {
+    background-color: #a73034;
+    position: relative;
+    overflow: hidden;
+    padding: 8px 24px 16px 24px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+}
+
+.logo_header {
+    width: 100px;
+}
+
+.header-right img {
+    width: 24px;
+    margin-left: 16px;
+}
+  
+  
+@media screen and (max-width: 500px) {
+    .header a {
+      flex-direction: column;
+    } 
+  }
+
+.header-2 {
+    background-color: #394A59;
+    position: fixed;
+    overflow: hidden;
+    padding: 6px 25px 6px 25px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+}
+
+.header-2 .header-left img {
+    width: 24px;
+    margin-bottom: 4px;
+}
+
+.header-2 .header-left {
+    display : flex;
+    flex-direction: row;
+    align-items:center;
+}
+
+
+.header-2 .header-left a { 
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    font-family: 'Alexandria';
+    margin-right: 16px;
+}
+
+.header-2 .header-right {
+    display: flex;
+    justify-content: center;
+}
+
+.header-2 .header-right input, button, form {
+    padding: 0px 4px 4px 4px;
+    outline: none;
+    height:28px;
+}
+
+.header-2 .header-right  button {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-right:12px;
+}
+
+.header-2 .header-right img {
+    position: relative;
+    right:8px;
+    bottom:1px;
+    width: 16px;
+}
+
+
+/*
+.header-2 .header-left button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: transparent;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+
+.header-2 .header-right input, button, form {
+    padding: 4px 4px 0px 4px;
+    outline: none;
+}
+
+
+.header-2 .header-right button {
+    background: none;
+    outline: none;
+} */
+
+
+/*  */
+
 .sidebar{
     background: #e3e8ed;
     position:absolute;
