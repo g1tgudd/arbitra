@@ -1,8 +1,6 @@
 use yew::prelude::*;
 
-pub enum Msg {
-    AddOne,
-}
+pub enum Msg {}
 
 pub struct LoginPage {
     // `ComponentLink` is like a reference to a component.
@@ -24,12 +22,7 @@ impl Component for LoginPage {
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
-            Msg::AddOne => {
-                self.value += 1;
-                // the value has changed so we need to
-                // re-render for it to appear on the page
-                true
-            }
+
         }
     }
 

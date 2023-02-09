@@ -9,3 +9,5 @@ edition = "2021"
 yew = "0.18"
 yew-router = "0.15.0"
 anyhow = "1.0.42"
+serde = { version = "1.0", features = ["derive"]}
+yewdux = "^0.6"
