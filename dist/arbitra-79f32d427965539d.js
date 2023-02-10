@@ -579,7 +579,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('arbitra-8baa70757ba82302_bg.wasm', import.meta.url);
+        input = new URL('arbitra-79f32d427965539d_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
