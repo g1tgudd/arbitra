@@ -579,11 +579,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-<<<<<<<< HEAD:dist/arbitra-a6d46ff83c8b1b6c.js
         input = new URL('arbitra-a6d46ff83c8b1b6c_bg.wasm', import.meta.url);
-========
-        input = new URL('arbitra-79f32d427965539d_bg.wasm', import.meta.url);
->>>>>>>> c719fcc082e2493931ea254e73a3a46bb9ec73aa:dist/arbitra-79f32d427965539d.js
     }
     const imports = getImports();
 
