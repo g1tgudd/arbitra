@@ -37,8 +37,24 @@ impl Component for IndexPage {
         html! {
             <div>
                 //SIDEBAR SMALL START
-                <div class="index-sidebar-small">
-                <img class="index-logo" src="images/Arbitra_LogoOnly.png"/> 
+                <div>
+                    <div class="leftbox index-sidebar-small">
+                        <img class="index-logo" src="images/Arbitra_LogoOnly.png"/> 
+                    </div>
+
+                    <div class="rightSideBar">
+                        <p style="font-family: Alexandria; color: #bd3143; font-size: 2rem">{"S E A R C H"}</p>
+                        <p style="font-family: Alexandria; margin-top: -8px">{ "Application" }</p>
+
+                        <div class="dropdown">
+                            <button class="mainmenubtn"><img class="applicationIcon" src="images/APP.png"/>{ "Scara \u{00a0} \u{23F7}"}</button>
+                            <div class="dropdown-child">
+                                <a href="#">{ "Link 1" }</a>
+                                <a href="#">{ "Link 2" }</a>
+                                <a href="#">{ "Link 3" }</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
