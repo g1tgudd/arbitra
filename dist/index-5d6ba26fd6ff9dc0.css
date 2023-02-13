@@ -192,7 +192,7 @@ input[type=password]:focus {
 
 .header-2 {
     background-color: #394A59;
-    position: fixed;
+    position: sticky;
     overflow: hidden;
     padding: 6px 25px 6px 25px;
     display:flex;
@@ -246,6 +246,60 @@ input[type=password]:focus {
     width: 16px;
 }
 
+.dash-container {
+    display:flex;
+    flex-direction:column;
+    padding: 24px;
+    padding-top : 48px;
+    font-family: 'Alexandria';
+}
+
+.dash-container .dash-info h1{
+    font-family: 'Alexandria';
+    font-size: 48px;
+    color:#a73034;
+}
+
+.dash-info-buttons {
+    padding:28px 28px 28px 0px;
+    display: flex; 
+    flex-direction: row;
+}
+
+.button {
+    height: 40px;
+    border:solid;
+    border-radius: 8px;
+    padding: 0px 28px;
+    margin-right: 20px;
+    border-color: #a73034;
+}
+
+.button-primary { 
+    background-color: #a73034;
+    color:white;
+}
+.button-secondary { 
+    background-color: white;
+    color: #a73034;
+}
+
+.dash-card {
+    border:solid;
+    border-color: #a73034;
+    border-radius: 8px;
+    padding:12px 20px;
+    background-color:white;
+}
+
+.dash-card h1 {
+    font-family : 'Alexandria';
+    color: #a73034;
+}
+
+.sub-card { 
+    padding-bottom: 16px;
+}
 
 /*
 .header-2 .header-left button {
@@ -275,11 +329,12 @@ input[type=password]:focus {
 
 .sidebar{
     background: #e3e8ed;
-    position:absolute;
+    position:relative;
     top:0px;
     bottom:0px;
-    width: 15%;
+    width: 20%;
     border-right: #9eadba 3px solid;
+    float:left;
 }
 
 .sideApp{
@@ -287,3 +342,23 @@ input[type=password]:focus {
     font-size: 18px;
 }
 /* End of Arbitra Dashboard */
+
+
+/*INDEX PAGE */ 
+.index-sidebar-small {
+    background-color : #E5C8C9;
+    width: 72px;
+    position:fixed;
+    height:100%;
+    overflow: auto;
+
+    display: flex; 
+    justify-content: center;
+
+    padding : 12px;
+}
+
+.index-sidebar-small img {
+    width: 48px;
+    height: 48px;
+}

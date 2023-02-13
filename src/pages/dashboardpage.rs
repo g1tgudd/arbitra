@@ -36,10 +36,9 @@ impl Component for DashboardPage {
     fn view(&self) -> Html {
         html! {
             <div>
-                <div class="sidebar">
-                    <p class="sideApp">{"Application : "}</p>
-                </div>
+                
 
+                //HEADER TOP
                 <div class="header">
                     <a href="">
                         <img class="logo_header" src="images/Arbitra_Horizontal2.png"/> 
@@ -56,8 +55,8 @@ impl Component for DashboardPage {
                         </a>
                     </div>
                 </div>
-
-
+                //HEADER TOP END
+                //HEADER TOP FIXED
                 <div class="header-2">
                     <div class="header-left">
                         <a href="">
@@ -70,18 +69,84 @@ impl Component for DashboardPage {
                     </div>
 
                     <div class="header-right">
-                        <form action="">
-                            <input type="text" placeholder="Search..." name="search"/>
-                        </form>
+                        <div class="form-outline">
+                            <input type="search" id="form1" placeholder="Search" aria-label="Search" class="form-control bg-light" />
+                        </div>
                         <button type="button" class="btn btn-primary">
                             <img src="images/search.png" alt="search icon"/> 
                         </button>
                     </div>
-
-
                 </div>
+                //HEADER TOP FIXED END
 
-                
+                //SIDEBAR
+                <div class="sidebar">
+                    <p class="sideApp">{"Application : "}</p>
+                </div> 
+                //SIDEBAR END
+
+
+                //DASHBOARD AREA START
+                <div class= "dash-container">
+                    //DASHBOARD INFO START
+                    <div class="dash-info">
+                        <h1> {"Welcome!"} </h1>
+                        <p> {"Check what's happening with your Arbitra search Implementation."} </p>
+                    </div>
+                    //DASHBOARD INFO END
+
+                    //DASHBOARD BUTTONS START
+                    <div class="dash-info-buttons">
+                        <button class="button button-primary">{"Export Data"}</button>
+                        <button class="button button-secondary">{"API Keys"}</button>
+                        <button class="button button-secondary">{"Billing"}</button>
+                    </div>
+                    //DASHBOARD BUTTONS END
+
+                    //DASHBOARD CARDS START
+                    <div class="dash-card">
+                        <h1> {"SEARCH"} </h1>
+
+                        //SUB CARD #1
+                        <div class="sub-card">
+                            <h6> {"Search Requests"} </h6>
+                            <h3> {"47"} </h3>
+                        </div>
+                        //SUB CARD END
+
+                         //SUB CARD #2
+                        <div class="sub-card">
+                            <h6> {"Average Search Speed"} </h6>
+                            <h3> {"52ms"} </h3>
+                        </div>
+                        //SUB CARD END
+
+                    </div>
+                    //DASHBOARD CARDS END
+                </div>
+                //DASHBOARD AREA END
+
+
+
+            </div>
+            //BODY END
+        }
+    }
+}
+
+                // <div class="header-right">
+                    //     <form action="">
+                    //         <input type="text" placeholder="Search..." name="search"/>
+                    //     </form>
+                    //     <button type="button" class="btn btn-primary">
+                    //         <img src="images/search.png" alt="search icon"/> 
+                    //     </button>
+                    // </div>
+
+
+
+
+
                 //     <div class="header-left">
                 //         <div class="header-left-a">
                 //             
@@ -104,9 +169,3 @@ impl Component for DashboardPage {
 
                 //     </div>
                 // </div>
-               
-
-            </div>
-        }
-    }
-}

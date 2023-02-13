@@ -541,8 +541,8 @@ function getImports() {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper4378 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 224, __wbg_adapter_18);
+    imports.wbg.__wbindgen_closure_wrapper4653 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 236, __wbg_adapter_18);
         return addHeapObject(ret);
     };
 
@@ -579,7 +579,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('arbitra-8baa70757ba82302_bg.wasm', import.meta.url);
+        input = new URL('arbitra-a6d46ff83c8b1b6c_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 

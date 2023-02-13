@@ -7,6 +7,7 @@ use crate::pages::{
     homepage::HomePage,
     loginpage::LoginPage,
     signuppage::SignupPage,
+    indexpage::IndexPage
 };
 
 
@@ -71,6 +72,11 @@ impl Component for Render {
                 AppRoute::DashboardPage => {
                     html! {
                         <DashboardPage/>
+                    }
+                }
+                AppRoute::IndexPage => {
+                    html! {
+                        <IndexPage/>
                     }
                 }
             }
