@@ -1,12 +1,29 @@
-use yew::prelude::*;
+use yew::{
+    format::{ Json, Nothing },
+    prelude::*,
+    services::{
+        fetch::{FetchService, FetchTask, Request, Response},
+        ConsoleService,
+    },
+};
 
-pub enum Msg {}
+use crate::types::var::{
+    DashboardData,
+};
+
+pub enum Msg {
+    RequestData,
+    GetDashboardData(DashboardData),
+    ResponseError(String),
+}
 
 pub struct DashboardPage {
     // `ComponentLink` is like a reference to a component.
     // It can be used to send messages to the component
+    fetch_task: Option<FetchTask>,
     link: ComponentLink<Self>,
     value: i64,
+    dashboarddata: DashboardData,
 }
 
 impl Component for DashboardPage {
@@ -15,14 +32,65 @@ impl Component for DashboardPage {
 
     fn create(_props: Self::Properties, link: ComponentLink<Self>) -> Self {
         Self {
+            fetch_task: None,
             link,
             value: 0,
+            dashboarddata: DashboardData {
+                request_amount: None,
+                ping: None,
+            }
         }
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
+            Msg::RequestData => {
+                //FETCHING...
 
+                let request = Request::get("http://localhost:3000/dashboard_data")
+                    // .header("access_token", get_access_token{}.unwrap_or_default())
+                    .body(Nothing)
+                    .expect("Could not build request.");
+                let callback = 
+                    self.link.callback(|response: Response<Json<Result<DashboardData, anyhow::Error>>>| {
+                        let (meta, Json(data)) = response.into_parts();
+                        // let status_number = meta.status.as_u16();
+        
+                        match data { 
+                            Ok(dataok) => {
+                                ConsoleService::info(&format!("data response {:?}", &dataok));
+                                Msg:: GetDashboardData(dataok)
+                            }
+                            Err(error) => {
+                                Msg::ResponseError(error.to_string())
+                            }
+                        }
+                    });
+        
+                let task = FetchService::fetch(request, callback).expect("failed to start request");
+                
+                self.fetch_task = Some(task);
+                true
+            }
+
+            Msg::GetDashboardData(data) => {
+                ConsoleService::info(&format!("data is {:?}", data));
+                self.dashboarddata = data;
+                true
+            }
+
+            Msg::ResponseError(text) => {
+                ConsoleService::info(&format!("error is {:?}", text));
+                true
+            }
+
+
+        }
+    }
+
+    fn rendered(&mut self, first_render: bool) {
+        if first_render {
+			self.link.send_message(Msg::RequestData);
         }
     }
 
@@ -110,14 +178,16 @@ impl Component for DashboardPage {
                         //SUB CARD #1
                         <div class="sub-card">
                             <h6> {"Search Requests"} </h6>
-                            <h3> {"47"} </h3>
+                            <h3> {self.dashboarddata.request_amount.clone().unwrap_or_default()} </h3>
                         </div>
                         //SUB CARD END
 
                          //SUB CARD #2
                         <div class="sub-card">
                             <h6> {"Average Search Speed"} </h6>
-                            <h3> {"52ms"} </h3>
+                            
+                            <h3> {self.dashboarddata.ping.clone().unwrap_or_default()}{"ms"} </h3>
+                            
                         </div>
                         //SUB CARD END
 
