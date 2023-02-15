@@ -82,7 +82,7 @@ impl Component for IndexPage {
                             <p class="recordSize">{ "Average Record Size\u{00a0} \u{00a0} \u{00a0} \u{00a0} 1.000.000.000B" }</p>
                         </div>
 
-                        <br/><br/><br/>
+                        <br/><br/>
 
                         <div class="dropdownRecord">
                             <button class="mainmenubtnRecord">{ "New Record \u{00a0} \u{00a0} \u{00a0} \u{00a0} \u{23F7}"}</button>
@@ -113,6 +113,24 @@ impl Component for IndexPage {
 
                         <img class="copyIcon" src="images/Copy Icon.png"/>
                         <img class="copyIcon" src="images/Refresh.png"/>
+
+                    </div>
+
+                    <div class="bottom-index-dashboard">
+                        <div class="flex-container">
+                            <button class="subtab-p">{ "Browse" }</button>
+                            <button class="subtab-p">{ "Configuration" }</button>
+                            <button class="subtab-p">{ "Replicas" }</button>
+                            <button class="subtab-p">{ "Search API Records" }</button>
+                            <button class="subtab-p">{ "Stats" }</button>
+                            <button class="subtab-p">{ "UI Demos" }</button>
+                        </div>
+
+                        <div class="card">
+                            <div class="search-bar">
+                                <input class="search" type="text" placeholder="Search..." />
+                            </div>
+                        </div>
 
                     </div>
                 </div>

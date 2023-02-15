@@ -359,7 +359,7 @@ input[type=password]:focus {
 }
 
 .index-sidebar-small img {
-    height: 6%;
+    height: 5%;
 }
 
 .rightSideBar{
@@ -367,6 +367,7 @@ input[type=password]:focus {
     padding-left: 1%;
     width: 15%;
     padding-top: 1%;
+    height: 100vh;
 }
 
 .rightSideBar p{
@@ -389,26 +390,31 @@ input[type=password]:focus {
     padding-bottom: 30px;
  }
  
- .mainmenubtn:hover {
-    border: solid 1px #bd3143;
-    }
- 
  .dropdown {
     position: relative;
     display: inline-block;
  }
  .dropdown-child {
     display: none;
-    background-color: #e5c8c9;
+    position: absolute;
+    background-color: white;
     min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
  }
  .dropdown-child a {
-    color: black;
+    color: #4B5C6B;
     padding: 20px;
     text-decoration: none;
     display: block;
     font-family: Alexandria;
  }
+
+ .dropdown-child a:hover {
+    color: #a73034;
+ }
+
  .dropdown:hover .dropdown-child {
     display: block;
  }
@@ -436,10 +442,6 @@ input[type=password]:focus {
     font-size: 2rem;
     padding-bottom: 11%;
 }
-
-.mainmenubtnIndex:hover {
-    
-}
  
 .dropdownIndex {
     position: relative;
@@ -450,6 +452,8 @@ input[type=password]:focus {
     display: none;
     background-color: white;
     min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
  }
 
 .dropdown-childIndex a {
@@ -469,7 +473,7 @@ input[type=password]:focus {
 }
 
 .recordData {
-    padding-top: 1%;
+    margin-top: 1%;
 }
 
 .recordNum{
@@ -505,7 +509,6 @@ input[type=password]:focus {
     border-radius: 5px;
     font-family: Alexandria;
     font-size: 1rem;
-    float: left;
 }
  
 .dropdownRecord {
@@ -517,8 +520,10 @@ input[type=password]:focus {
 .dropdown-childRecord {
     display: none;
     background-color: white;
-    min-width: 200px;
+    min-width: 150px;
     position: absolute;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
  }
 
 .dropdown-childRecord a {
@@ -539,8 +544,48 @@ input[type=password]:focus {
 
 .copyIcon {
     height: 28px;
-    margin-top: -1.35%;
+    margin-top: -0.4%;
     border: solid 2px #4B5C6B;
     border-radius: 5px;
     margin-right: 0.5%;
+}
+
+/* Bottom Index Dashboard */
+.bottom-index-dashboard {
+    font-family: Alexandria;
+    margin-top: 3%;
+}
+
+.subtab-p{
+    font-size: 1.5rem;
+    border: none;
+    background-color: transparent;
+}
+
+.subtab-p:hover{
+    color: #a73034;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+  }
+
+.card {
+    border-top: solid 1px black;
+    height: 50vh;
+}
+
+.search-bar {
+    margin-top: 2%;
+    margin-left: 1%;
+}
+
+.search {
+    border: solid 1px #a73034;
+    width: 98%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    padding-left: 0.4%;
 }

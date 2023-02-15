@@ -41,16 +41,14 @@ impl Component for LoginPage {
                 <img class="arbitraLogo" src="images/Arbitra_Full2.png" alt="logo image"/>
                 <div class="loginBox">
                     <h1 style="padding-bottom: 5%; font-family: 'Alexandria', sans-serif;">{ "Log in" }</h1>
+                    
+                    <div style="padding-bottom: 24px">
+                        <input type="email" id="useremail" placeholder="Email address" />
+                    </div>
 
-                    <form>
-                        <div style="padding-bottom: 24px">
-                            <input type="email" id="useremail" placeholder="Email address" />
-                        </div>
-
-                        <div style="padding-bottom: 22px">
-                            <input type="password" id="userpassword" placeholder="Password" />
-                        </div>
-                    </form>
+                    <div style="padding-bottom: 22px">
+                        <input type="password" id="userpassword" placeholder="Password" />
+                    </div>
 
                     <div style="padding-bottom: 8%">
                         <div>
