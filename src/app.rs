@@ -11,8 +11,13 @@ use yew::{
     },
 };
 
-use crate::router::render::Render;
+use crate::router::{
+    // render::Render,
+    render_guest::RenderGuest,
+    render_member::RenderMember,
+};
 use crate::components::navtop::Navtop;
+use crate::pages::indexpage::IndexPage;
 
 use crate::store::store:: {
     CounterStore,
@@ -76,8 +81,8 @@ impl Component for App {
                     }
                 }
             }
+        }
     }
-}
 
     fn change(&mut self, _props: Self::Properties) -> ShouldRender {
         // Should only return "true" if new properties are different to
@@ -87,12 +92,29 @@ impl Component for App {
     }
 
     fn view(&self) -> Html {
-        html! {
-            <div>
-                // <Router<AppRoute,()> render=render/>
-                <Render/>
 
-            </div>
+        let is_logged_in = self.username.is_some();
+
+        if is_logged_in {
+            html!{
+                <div>
+                    <RenderMember/>
+                </div>
+            }
+        }else {
+            html! {
+                <div>
+                    <RenderGuest/>
+                </div>
+            }
         }
+
+        // html! {
+        //     <div>
+        //         // <Router<AppRoute,()> render=render/>
+        //         <Render/>
+
+        //     </div>
+        // }
     }
 }

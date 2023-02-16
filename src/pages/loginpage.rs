@@ -1,11 +1,33 @@
 use yew::prelude::*;
+use std::rc::Rc;
+use yewdux::prelude::*;
 
-pub enum Msg {}
+use yew::{
+    prelude::*,
+    services::{
+        ConsoleService,
+    },
+};
+
+use crate::store::store:: {
+    CounterStore,
+    CounterOutput,
+    CounterInput,
+    State,
+};
+
+pub enum Msg {
+    State(Rc<State>),
+    Output(CounterOutput),
+    Login,
+}
 
 pub struct LoginPage {
     // `ComponentLink` is like a reference to a component.
     // It can be used to send messages to the component
     link: ComponentLink<Self>,
+    dispatch: Dispatch<CounterStore>,
+    username: Option<String>,
     value: i64,
 }
 
@@ -14,15 +36,51 @@ impl Component for LoginPage {
     type Properties = ();
 
     fn create(_props: Self::Properties, link: ComponentLink<Self>) -> Self {
+        let dispatch = {
+            let on_state = link.callback(Msg::State);
+            let on_output = link.callback(Msg::Output);
+
+            Dispatch::bridge(on_state, on_output)
+        };
+
         Self {
             link,
+            dispatch,
+            username: None,
             value: 0,
         }
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
+            Msg::State(state) => {
+                ConsoleService::info("page app.rs");
+                ConsoleService::info(&format!("state is {:?}", state));
+                self.username= state.username.clone();
+                true
+            }
+            
+            Msg::Output(msg) => {
+                match msg { //HANDLE OUTPUT
+                    CounterOutput::Doubled(n) => {
+                        ConsoleService::info(&format!("count doubled would be {:?}", n));
+                        true
+                    }
+                    CounterOutput::AddFive(n) => {
+                        ConsoleService::info(&format!("count plus five would be {:?}", n));
+                        true
+                    }
+                     _ => {
+                        ConsoleService::info(&format!("ignored"));
+                        false
+                    }
+                }
+            }
 
+            Msg::Login => {
+                self.dispatch.send(CounterInput::UpdateUsername(String::from("bruce wayne")));
+                true
+            }
         }
     }
 
@@ -63,7 +121,7 @@ impl Component for LoginPage {
                     </div>
 
                     // Submit button
-                    <button class="submitBtn" type="button">{ "Login" }</button>
+                    <button class="submitBtn" type="button" onclick=self.link.callback(|_| Msg::Login)>{ "Login" }</button>
 
                     //Register button
                     <div class="text-center" style="padding-top: 20px">
